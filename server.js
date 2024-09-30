@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); 
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { User, Address } = require('./db');
@@ -9,6 +9,12 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Smoke Trees API!');
+});
+
+// Register route
 app.post('/register', async (req, res) => {
   const { name, address } = req.body;
 
